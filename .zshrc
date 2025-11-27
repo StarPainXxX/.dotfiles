@@ -1,14 +1,8 @@
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_DISABLE_COMPFIX=true
 
-# 注意：如果你用 Powerlevel10k，建议这里直接设为 powerlevel10k/powerlevel10k
-# 但保留 robbyrussell 也不影响，因为后面 source .p10k.zsh 会覆盖它
 ZSH_THEME="robbyrussell"
 
 # Plugins
@@ -27,14 +21,24 @@ ZSH_HIGHLIGHT_STYLES[builtin]='fg=#EC7FA9,bold'
 ZSH_HIGHLIGHT_STYLES[path]='fg=#FF1493,underline'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#C0C0C0"
 
-# --- 加载 Powerlevel10k 配置 ---
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# --- 跨平台系统识别与配置 (核心修改部分) ---
-
+#压缩命令(extract 文件名)
 # 1. 通用别名 (Mac 和 Linux 都能用)
 alias ni='nvim'
 alias cl='clear'
+alias py='python3'
+alias hst='history | tail'
+
+# git相关
+alias gs='git status'
+alias gall='git add --all'
+alias gad='git add'
+alias gcm='git commit -m'
+alias gca='git commit --amend'
+alias gl='git pull'
+alias gp='git push'
+alias glog='git log'
+alias glogg='git log --graph --online --decorate'
+
 
 # 2. 操作系统判断
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -46,7 +50,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
         export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
     fi
 
-    # Mac 特有的软件路径 (LM Studio, Antigravity)
+    # Mac 特有的软件路径
     export PATH="$PATH:$HOME/.lmstudio/bin"
     export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 

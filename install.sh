@@ -26,19 +26,19 @@ install_dependences() {
         fi
         echo "正在安装依赖..."
         # 基础工具
-        brew install git zsh ripgrep node wget fastfetch cmake neovim
+        brew install git zsh ripgrep node wget fastfetch cmake neovim tree
 
     elif [ -f /etc/arch-release ]; then
         echo -e "${GREEN}检测到 Arch Linux${NC}"
         echo "正在安装依赖..."
         # 使用 -Syu 确保系统一致性
-        sudo pacman -Syu --noconfirm git zsh ripgrep nodejs npm wget base-devel unzip fastfetch clang cmake neovim
+        sudo pacman -Syu --noconfirm git zsh ripgrep nodejs npm wget base-devel unzip fastfetch clang cmake neovim tree
 
     elif [ -f /etc/lsb-release ] || [ -f /etc/debian_version ]; then
         echo -e "${GREEN}检测到 Ubuntu/Debian${NC}"
         echo "正在安装依赖..."
         sudo apt update
-        sudo apt install -y git zsh ripgrep nodejs npm wget curl unzip clang-format cmake neovim
+        sudo apt install -y git zsh ripgrep nodejs npm wget curl unzip clang-format cmake neovim tree
     else 
         echo -e "${RED}未知的操作系统，跳过依赖安装步骤。${NC}"
     fi
