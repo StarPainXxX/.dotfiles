@@ -6,7 +6,7 @@ ZSH_DISABLE_COMPFIX=true
 ZSH_THEME="robbyrussell"
 
 # Plugins
-# ⚠️ 注意：在 Arch 上，你需要手动 clone zsh-autosuggestions 和 zsh-syntax-highlighting 到插件目录
+# 在 Arch 上，你需要手动 clone zsh-autosuggestions 和 zsh-syntax-highlighting 到插件目录
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search docker)
 
 source $ZSH/oh-my-zsh.sh
@@ -34,8 +34,8 @@ alias gall='git add --all'
 alias gad='git add'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
-alias gl='git pull'
-alias gp='git push'
+alias gpl='git pull'
+alias gph='git push'
 alias glog='git log'
 alias glogg='git log --graph --online --decorate'
 
